@@ -74,5 +74,12 @@ public class PlayerController : MonoBehaviour
             _jumpCount = 0;
             _anim.Play("Idle");
         }
+
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            
+        }
     }
+
+
 }
