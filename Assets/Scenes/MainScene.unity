@@ -849,12 +849,12 @@ PrefabInstance:
     - target: {fileID: 7978988122933714578, guid: b2f5b6a86100cf74cacfbaec23fe11fc,
         type: 3}
       propertyPath: _speed
-      value: 1800
+      value: 6000
       objectReference: {fileID: 0}
     - target: {fileID: 7978988122933714578, guid: b2f5b6a86100cf74cacfbaec23fe11fc,
         type: 3}
       propertyPath: _jumpPower
-      value: 20
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 9079216508975617102, guid: b2f5b6a86100cf74cacfbaec23fe11fc,
         type: 3}
@@ -871,5 +871,6 @@ PrefabInstance:
       propertyPath: m_GravityScale
       value: 10
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4248600822903575427, guid: b2f5b6a86100cf74cacfbaec23fe11fc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b2f5b6a86100cf74cacfbaec23fe11fc, type: 3}
