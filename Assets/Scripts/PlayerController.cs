@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     Animator _anim = default;
     int _jumpCount = 0;
     bool _isGround = false;
+    
 
     void Start()
     {
@@ -24,6 +25,7 @@ public class PlayerController : MonoBehaviour
 
         _anim = GetComponent<Animator>();
         TryGetComponent(out _anim);
+        //GameObject.Find("_enemy");
     }
 
     void Update()
@@ -75,10 +77,7 @@ public class PlayerController : MonoBehaviour
             _anim.Play("Idle");
         }
 
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            
-        }
+        
     }
 
 
