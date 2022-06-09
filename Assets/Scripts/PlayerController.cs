@@ -11,7 +11,9 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D _rb2d = default;
     Animator _anim = default;
     int _jumpCount = 0;
+    int _jumpEffect = 10;
     bool _isGround = false;
+
     
 
     void Start()
@@ -77,7 +79,13 @@ public class PlayerController : MonoBehaviour
             _anim.Play("Idle");
         }
 
-        
+        if (collision.gameObject.CompareTag("Head"))
+        {
+            Destroy(collision.gameObject.transform.parent.gameObject);
+            _rb2d.velocity = Vector2.up * _jumpPower;
+            _anim.Play("PlayerJump");
+
+        }
     }
 
 
