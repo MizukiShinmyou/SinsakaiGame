@@ -14,6 +14,7 @@ public class BossEnemyMove : MonoBehaviour
     Rigidbody2D _rb2d;
     Vector2 _pos;
     public int _num;
+    
     void Start()
     {
         _rb2d = GetComponent<Rigidbody2D>();
@@ -49,4 +50,17 @@ public class BossEnemyMove : MonoBehaviour
             yield return new WaitForSeconds(_rnd);
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        GameObject _player = GameObject.FindGameObjectWithTag("Player");
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Destroy(_player);
+        }
+    }
+
+
 }

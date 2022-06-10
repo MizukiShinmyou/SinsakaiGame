@@ -32,13 +32,7 @@ public class EnemyController : MonoBehaviour
             Patrol();
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision) //Ç†ÇΩÇ¡ÇΩÇÁDestroyÇ∑ÇÈÅB
-    {
-        if (collision.collider)
-        {
-            //Destroy(this.gameObject);
-        }
-    }
+    
 
     void Patrol()
     {
@@ -54,6 +48,17 @@ public class EnemyController : MonoBehaviour
         else
         {
             _currentTargetIndex++;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        GameObject _player = GameObject.FindGameObjectWithTag("Player");
+        
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Destroy(_player);
         }
     }
 }

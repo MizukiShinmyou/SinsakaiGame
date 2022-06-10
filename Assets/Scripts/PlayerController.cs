@@ -11,10 +11,11 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D _rb2d = default;
     Animator _anim = default;
     int _jumpCount = 0;
-    int _jumpEffect = 10;
     bool _isGround = false;
-
+    int _stepOnCount = 0;
     
+
+
 
     void Start()
     {
@@ -32,6 +33,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+
+
         // インプット（水平の入力）
         var x = Input.GetAxisRaw("Horizontal");
         var jump = Input.GetButtonDown("Jump");
@@ -72,19 +75,33 @@ public class PlayerController : MonoBehaviour
     /// <param name="collision"></param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        GameObject _bossEnemy = GameObject.FindGameObjectWithTag("BossEnemy");
+
+        if (collision.gameObject.CompareTag("Ground")) //地面にいるとき
         {
             _isGround = false;
             _jumpCount = 0;
             _anim.Play("Idle");
         }
 
-        if (collision.gameObject.CompareTag("Head"))
+        if (collision.gameObject.CompareTag("Head")) //エネミーを踏んだとき
         {
             Destroy(collision.gameObject.transform.parent.gameObject);
             _rb2d.velocity = Vector2.up * _jumpPower;
             _anim.Play("PlayerJump");
 
+        }
+
+        if (collision.gameObject.CompareTag("BossEnemy") ) //ボスを踏んだとき
+        {
+            _stepOnCount++;
+            Debug.Log("++");
+            _rb2d.AddForce(Vector2.up * _jumpPower * 80);
+
+        }
+        if (_stepOnCount == 5)
+        {
+            Destroy(_bossEnemy);
         }
     }
 
