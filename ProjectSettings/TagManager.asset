@@ -10,6 +10,7 @@ TagManager:
   - Ground
   - Pickup
   - Head
+  - BossEnemy
   layers:
   - Default
   - TransparentFX
