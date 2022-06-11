@@ -7,18 +7,25 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] float _speed = 10;
     [SerializeField] float _jumpPower = 10;
+    [SerializeField] public AudioClip _jump1 = default;
+    [SerializeField] public AudioClip _jump2 = default;
 
     Rigidbody2D _rb2d = default;
     Animator _anim = default;
+    AudioSource _audio = default;
     int _jumpCount = 0;
     bool _isGround = false;
     int _stepOnCount = 0;
+
     
+
 
 
 
     void Start()
     {
+        _audio = GetComponent<AudioSource>();
+
         if (!TryGetComponent(out _rb2d))
         {
             Debug.Log("Rigidbody2D Ç™éÊìæÇ≈Ç´Ç‹ÇπÇÒÇ≈ÇµÇΩÅB");
@@ -29,6 +36,8 @@ public class PlayerController : MonoBehaviour
         _anim = GetComponent<Animator>();
         TryGetComponent(out _anim);
         //GameObject.Find("_enemy");
+
+
     }
 
     void Update()
@@ -45,6 +54,7 @@ public class PlayerController : MonoBehaviour
             _rb2d.velocity = Vector2.up * _jumpPower;
             _jumpCount++;
             _isGround = true;
+            
         }
 
         var velo = _rb2d.velocity;
