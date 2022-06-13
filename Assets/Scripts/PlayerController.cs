@@ -13,8 +13,8 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D _rb2d = default;
     Animator _anim = default;
     AudioSource _audio = default;
-    int _jumpCount = 0;
-    bool _isGround = false;
+    public int _jumpCount = 0;
+    public bool _isGround = false;
     int _stepOnCount = 0;
 
     
@@ -68,6 +68,14 @@ public class PlayerController : MonoBehaviour
                 _anim.Play("PlayerRun");
             }
         }
+
+        else if (x == 0 && _isGround == true)
+        {
+            _anim.Play("PlayerJump");
+        }
+
+        
+        
         else
         {
             velo.x = 0;
@@ -107,6 +115,7 @@ public class PlayerController : MonoBehaviour
             _stepOnCount++;
             Debug.Log("++");
             _rb2d.AddForce(Vector2.up * _jumpPower * 80);
+            _anim.Play("PlayerJump");
 
         }
         if (_stepOnCount == 5)

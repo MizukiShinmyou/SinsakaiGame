@@ -8,17 +8,18 @@ public class Audio : MonoBehaviour
 
     AudioSource _audio = default;
     
-    private int _jumpCount = 0;
+    
     [SerializeField] public AudioClip _jump1 = default;
     [SerializeField] public AudioClip _jump2 = default;
-
-    bool _isGround = true;
+    PlayerController _playerController = default;
+    
 
 
 
     void Start()
     {
         _audio = GetComponent<AudioSource>();
+        _playerController = GetComponent<PlayerController>();
         
     }
 
