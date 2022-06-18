@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
 
         if (x != 0)
         {
-            velo.x = x * _speed * Time.deltaTime;
+            velo.x = x * _speed; //* Time.deltaTime;
             transform.localScale = new Vector3(x, transform.localScale.y, transform.localScale.z);
             if(!_isGround)
             {

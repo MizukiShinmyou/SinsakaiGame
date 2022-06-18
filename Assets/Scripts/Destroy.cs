@@ -8,7 +8,7 @@ public class Destroy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _canvas = GetComponent<Canvas>();
+       
     }
 
     // Update is called once per frame
@@ -21,9 +21,7 @@ public class Destroy : MonoBehaviour
     {
         Destroy(collision.gameObject);
 
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            
-        }
+        
     }
+    
 }
